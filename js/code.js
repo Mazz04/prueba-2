@@ -1,5 +1,3 @@
-alert ("aaaaaaa");
-
 const valuesInput = document.getElementById('values');
 const calculateButton = document.getElementById('calculate');
 const resetButton = document.getElementById('reset');
@@ -33,29 +31,56 @@ function calculateMedian(arr) {
 
 // Function to calculate mode
 function calculateMode(arr) {
-  const counts = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (counts[arr[i]]) {
-      counts[arr[i]]++;
-    } else {
-      counts[arr[i]] = 1;
+    const counts = {};
+    const wordCounts = {};
+  
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'string') {
+        if (wordCounts[arr[i]]) {
+          wordCounts[arr[i]]++;
+        } else {
+          wordCounts[arr[i]] = 1;
+        }
+      } else {
+        if (counts[arr[i]]) {
+          counts[arr[i]]++;
+        } else {
+          counts[arr[i]] = 1;
+        }
+      }
     }
-  }
-  let maxCount = 0;
-  let modes = [];
-  for (let num in counts) {
-    if (counts[num] > maxCount) {
-      modes = [num];
-      maxCount = counts[num];
-    } else if (counts[num] === maxCount) {
-      modes.push(num);
+  
+    let maxCount = 0;
+    let modes = [];
+  
+    if (Object.keys(counts).length !== 0) {
+      for (let num in counts) {
+        if (counts[num] > maxCount) {
+          modes = [num];
+          maxCount = counts[num];
+        } else if (counts[num] === maxCount) {
+          modes.push(num);
+        }
+      }
     }
+  
+    if (Object.keys(wordCounts).length !== 0) {
+      for (let word in wordCounts) {
+        if (wordCounts[word] > maxCount) {
+          modes = [word];
+          maxCount = wordCounts[word];
+        } else if (wordCounts[word] === maxCount) {
+          modes.push(word);
+        }
+      }
+    }
+  
+    if (modes.length === Object.getOwnPropertyNames(counts).length + Object.getOwnPropertyNames(wordCounts).length) {
+      modes = [];
+    }
+  
+    return modes;
   }
-  if (modes.length === Object.getOwnPropertyNames(counts).length) {
-modes = [];
-}
-return modes;
-}
 
 // Function to calculate standard deviation
 function calculateStddev(arr) {
@@ -118,6 +143,6 @@ meanOutput.textContent = '';
 medianOutput.textContent = '';
 modeOutput.textContent = '';
 stddevOutput.textContent = '';
-varTypeOutput.textContent = '';
+varTypeOutput.textContent= '';
 });
 
