@@ -6,19 +6,50 @@ const medianOutput = document.getElementById('median');
 const modeOutput = document.getElementById('mode');
 const stddevOutput = document.getElementById('stddev');
 const varTypeOutput = document.getElementById('varType');
+const pensador = require('pensador-api')
+
+const array = await pensador({ term: "Elon Musk", max: 5 })
+
+// Returns:{
+/*
+"total": 5,
+    "searchTerm": "frases_de_elon_musk",
+    "phrases": [
+        {
+            "author": "Elon Musk",
+            "text": "Cuando algo es lo bastante importante, lo logras, aunque las probabilidades no estén a tu favor."
+        },
+        {
+            "author": "Elon Musk",
+            "text": "A algunas personas no les gustan los cambios, pero hay que aceptarlos si la alternativa es el desastre."
+        },
+        {
+            "author": "Elon Musk",
+            "text": "La vida es demasiado corta para desacuerdos a largo plazo."
+        },
+        {
+            "author": "Elon Musk",
+            "text": "La persistencia es muy importante. No debes rendirte a menos que te veas obligado a hacerlo."
+        },
+        {
+            "author": "Elon Musk",
+            "text": "La gente trabaja mejor cuando sabe cuál es el objetivo y por qué. Es importante que la gente tenga ganas de venir a trabajar por la mañana y disfrute trabajando."
+        }
+    ]
+}
+*/
 
 let values = [];
 
-// Function to calculate mean
 function calculateMean(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+    sum += parseFloat(arr[i]);
   }
   return sum / arr.length;
 }
 
-// Function to calculate median
+
 function calculateMedian(arr) {
   const sorted = arr.sort((a, b) => a - b);
   const middle = Math.floor(sorted.length / 2);
@@ -29,7 +60,7 @@ function calculateMedian(arr) {
   }
 }
 
-// Function to calculate mode
+
 function calculateMode(arr) {
     const counts = {};
     const wordCounts = {};
@@ -71,6 +102,7 @@ function calculateMode(arr) {
           maxCount = wordCounts[word];
         } else if (wordCounts[word] === maxCount) {
           modes.push(word);
+          console.log(word);
         }
       }
     }
@@ -82,7 +114,7 @@ function calculateMode(arr) {
     return modes;
   }
 
-// Function to calculate standard deviation
+
 function calculateStddev(arr) {
 const mean = calculateMean(arr);
 const differences = arr.map(num => num - mean);
@@ -92,7 +124,7 @@ const variance = sum / arr.length;
 return Math.sqrt(variance);
 }
 
-// Function to determine variable type
+
 function determineVarType(arr) {
 const hasNonNumeric = arr.some(val => isNaN(val));
 if (hasNonNumeric) {
@@ -102,42 +134,39 @@ return 'Quantitative';
 }
 }
 
-// Event listener for calculate button
+
 calculateButton.addEventListener('click', () => {
-// Reset outputs
+
 meanOutput.textContent = '';
 medianOutput.textContent = '';
 modeOutput.textContent = '';
 stddevOutput.textContent = '';
 varTypeOutput.textContent = '';
 
-// Get input values and convert to array
-values = valuesInput.value.split(',').map(val => parseFloat(val));
+values = valuesInput.value.split(',').map(val => val);
 
-// Determine variable type
 const varType = determineVarType(values);
 varTypeOutput.textContent = varType;
 
-// Calculate and display mean
 const mean = calculateMean(values);
 meanOutput.textContent = mean;
 
-// Calculate and display median
+
 const median = calculateMedian(values);
 medianOutput.textContent = median;
 
-// Calculate and display mode
+
 const mode = calculateMode(values);
 modeOutput.textContent = mode.join(', ');
 
-// Calculate and display standard deviation
+
 const stddev = calculateStddev(values);
 stddevOutput.textContent = stddev.toFixed(2);
 });
 
-// Event listener for reset button
+
 resetButton.addEventListener('click', () => {
-// Reset inputs and outputs
+
 valuesInput.value = '';
 meanOutput.textContent = '';
 medianOutput.textContent = '';

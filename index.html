@@ -11,46 +11,61 @@
     <div class="container">
         <div class="main">
  
-            <div class="input-group">
-                <label for="values">Enter values (separated by comma):</label>
-                <input type="text" id="values">
+            <div class="input">
+                <label for="values">Enter values (separated by comma):</label> <br>
+                <input type="text" id="values" class="input1">
             </div>
     
         </div>
         <div class="sidebar">
 
-            <div class="button-group">
-                <button id="calculate">Calculate</button>
-                <button id="reset">Reset</button>
+            <div class="button">
+                <button id="calculate" class="button1">Calculate</button> 
+                <button id="reset" class="button1">Reset</button>
             </div>
     
         </div>
         <div class="content1">
-            <div class="output-group">
-                <label for="mean">Mean:</label>
-                <span id="mean"></span>
+            <div class="output">
+                <label for="mean" class="mean">Mean:
+                    <span id="mean"></span>
+                </label>
+                
                 <br>
-                <label for="median">Median:</label>
-                <span id="median"></span>
+                <label for="median" class="median">Median:
+                    <span id="median"></span>
+                </label>
+                
                 <br>
-                <label for="mode">Mode:</label>
-                <span id="mode"></span>
+                <label for="mode" class="mode">Mode:
+                    <span id="mode"></span>
+                </label>
+               
                 <br>
-                <label for="stddev">Standard Deviation:</label>
-                <span id="stddev"></span>
+                <label for="stddev" class="stddev">Standard Deviation:
+                    <span id="stddev"></span>
+                </label>
+               
                 <br>
-                <label for="varType">Variable Type:</label>
-                <span id="varType"></span>
+                <label for="varType" class="varType">Variable Type:
+                    <span id="varType"></span>
+                </label>
+                
             </div>
     
         </div>
             
-        <div class="sidebar2">Sidebar2</div>
+        <div class="sidebar2" id="pensador-api">Sidebar2</div>
     </div>
 
-    <script src="js/code.js"></script>
+    <script src="js/code.js" type="module"></script>
 
-    <footer class="footer">Footer</footer>
+    <footer class="footer">
+        <section>
+            <a target="_blank" href="https://wa.link/535z7e">Cualquier duda, contáctame</a>
+        </section>
+        <p>Copyright 2023 <br> Menozz</p>
+    </footer>
 </body>
 </html>
 

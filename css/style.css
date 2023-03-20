@@ -22,35 +22,47 @@
 }
 
 .main {
-    background: #84ffff ;
+    background-image: linear-gradient(30deg, #58A69F, #3bada4, #5fe0d6, #80F2E9, #6CCCC4);
     grid-area: main;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    display: flex;
+    justify-content: center;
 
 }
 
 .sidebar {
-    background: #165f8f;
+    background-image: linear-gradient(300deg, #56A65D, #47b950, #77E681, #7EF288, #6BCC73);
     grid-area: sidebar;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .sidebar2 {
-    background: #168f8f;
+    background-image: linear-gradient(250deg, #677AA6, #798bb9, #8EA8E6, #96B2F2, #7E95CC);
     grid-area: sidebar2;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 
 .content1 {
-    background: #6fffd2;
+   background-image: linear-gradient(135deg, #4791A6, #588b99, #6e7db6, #68D4F2, #58B3CC);
     grid-area: content1;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
 }
 
@@ -58,7 +70,124 @@
     background: #1de9b6;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
+}
 
+
+.input {
+
+    border: 1px solid #ccc;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    width: 90%;
+    max-width: 450px;
+    max-height: 200px;
+    margin-top: 5rem;
+    font-size: 16px;
+
+  }
+
+.input1 {
+    text-align: center;
+    height: 20px;
+}
+  
+
+.button {
+    margin: 10px;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    flex-flow: flex wrap;
+  }
+  
+.button1 {
+    font-size: 18px;
+}     
+  
+.mean {
+    border: 2px solid #DB3D35;
+    border-radius: 8px;
+    background-color: #A7D4E4;
+    padding: 5px 9px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    font-size: 1.25em;
+
+}
+
+.median {
+    border: 2px solid #E64037;
+    border-radius: 8px;
+    background-color: #97b6c2;
+    padding: 5px 9px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    font-size: 1.25em;
+}
+
+.mode {
+    border: 2px solid #9C2B25;
+    border-radius: 8px;
+    background-color: #A0CCDB;
+    padding: 5px 9px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.25em;
+    
+}
+
+.stddev {
+    border: 2px solid #E84138;
+    border-radius: 8px;
+    background-color: #A9D7E8;
+    padding: 5px 9px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    font-size: 1.25em;
+}
+
+.varType {
+    border: 2px solid #C2362F;
+    border-radius: 8px;
+    background-color: #b0bcc0;
+    padding: 5px 9px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    font-size: 1.25em;
+}
+
+.footer {
+    background-color: #ADC6CC;
+    padding: 3rem;
+    color: black;
+    margin-top: 5px;
+}
+
+.footer section {
+    float: right;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    transition: color 0.3s ease;
+    color: black;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: rgb(112, 0, 0);
 }
 
 @media (max-width: 550px) {
@@ -67,9 +196,36 @@
         grid-template-rows: repeat(3,auto);
         grid-template-areas:
         "main main main main"
+        "sidebar sidebar sidebar sidebar"
         "content1 content1 content1 content1"
         "sidebar2 sidebar2 sidebar2 sidebar2"
-        "sidebar sidebar sidebar sidebar";
+        ;
+        text-align: left;
+    }
+    
+    .input {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .mean {
+        text-align: left;
+    }
+
+    .median {
+        text-align: left;
+    }
+
+    .mode {
+        text-align: left;
+    }
+
+    .stddev {
+        text-align: left;
+    }
+
+    .varType {
         text-align: left;
     }
 }
