@@ -5,16 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/code.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="main">main</div>
-        <div class="sidebar">Sidebar</div>
-        <div class="content1">content1</div>
+        <div class="main">
+ 
+            <div class="input-group">
+                <label for="values">Enter values (separated by comma):</label>
+                <input type="text" id="values">
+            </div>
+    
+        </div>
+        <div class="sidebar">
+
+            <div class="button-group">
+                <button id="calculate">Calculate</button>
+                <button id="reset">Reset</button>
+            </div>
+    
+        </div>
+        <div class="content1">
+            <div class="output-group">
+                <label for="mean">Mean:</label>
+                <span id="mean"></span>
+                <br>
+                <label for="median">Median:</label>
+                <span id="median"></span>
+                <br>
+                <label for="mode">Mode:</label>
+                <span id="mode"></span>
+                <br>
+                <label for="stddev">Standard Deviation:</label>
+                <span id="stddev"></span>
+                <br>
+                <label for="varType">Variable Type:</label>
+                <span id="varType"></span>
+            </div>
+    
+        </div>
+            
+        <div class="sidebar2">Sidebar2</div>
     </div>
+
+    <script src="js/code.js"></script>
 
     <footer class="footer">Footer</footer>
 </body>
 </html>
+

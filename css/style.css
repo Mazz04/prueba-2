@@ -7,11 +7,12 @@
     display: grid;
     height: 100vh;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
     grid-template-areas: 
     "sidebar main main main"
     "sidebar main main main"
-    "sidebar content1 content1 content1";
+    "sidebar2 content1 content1 content1"
+    "sidebar2 content1 content1 content1";
     grid-gap: 0.2rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -29,8 +30,16 @@
 }
 
 .sidebar {
-    background: #168f8f;
+    background: #165f8f;
     grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+
+}
+
+.sidebar2 {
+    background: #168f8f;
+    grid-area: sidebar2;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
 
@@ -54,11 +63,13 @@
 
 @media (max-width: 550px) {
     .container {
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(1fr);
         grid-template-rows: repeat(3,auto);
         grid-template-areas:
-        "main"
-        "content1"
-        "sidebar";
+        "main main main main"
+        "content1 content1 content1 content1"
+        "sidebar2 sidebar2 sidebar2 sidebar2"
+        "sidebar sidebar sidebar sidebar";
+        text-align: left;
     }
 }
