@@ -6,38 +6,8 @@ const medianOutput = document.getElementById('median');
 const modeOutput = document.getElementById('mode');
 const stddevOutput = document.getElementById('stddev');
 const varTypeOutput = document.getElementById('varType');
-const pensador = require('pensador-api')
-
-const array = await pensador({ term: "Elon Musk", max: 5 })
-
-// Returns:{
-/*
-"total": 5,
-    "searchTerm": "frases_de_elon_musk",
-    "phrases": [
-        {
-            "author": "Elon Musk",
-            "text": "Cuando algo es lo bastante importante, lo logras, aunque las probabilidades no estén a tu favor."
-        },
-        {
-            "author": "Elon Musk",
-            "text": "A algunas personas no les gustan los cambios, pero hay que aceptarlos si la alternativa es el desastre."
-        },
-        {
-            "author": "Elon Musk",
-            "text": "La vida es demasiado corta para desacuerdos a largo plazo."
-        },
-        {
-            "author": "Elon Musk",
-            "text": "La persistencia es muy importante. No debes rendirte a menos que te veas obligado a hacerlo."
-        },
-        {
-            "author": "Elon Musk",
-            "text": "La gente trabaja mejor cuando sabe cuál es el objetivo y por qué. Es importante que la gente tenga ganas de venir a trabajar por la mañana y disfrute trabajando."
-        }
-    ]
-}
-*/
+const { getEmoji, getAllEmoji, getThemes } = require('random-text-meme');
+const meme = document.getElementById('meme');
 
 let values = [];
 
@@ -142,6 +112,10 @@ medianOutput.textContent = '';
 modeOutput.textContent = '';
 stddevOutput.textContent = '';
 varTypeOutput.textContent = '';
+const emoji = getEmoji();
+meme.textContent = emoji;
+
+
 
 values = valuesInput.value.split(',').map(val => val);
 

@@ -22,7 +22,10 @@
     "url": "^0.11.0"
   },
   "dependencies": {
+    "@sefinek/random-animals": "^1.0.4",
     "pensador-api": "^1.0.0",
-    "random-puppy": "^1.1.0"
+    "random-puppy": "^1.1.0",
+    "random-text-meme": "^1.1.9",
+    "yourmama": "^1.1.0"
   }
 }
